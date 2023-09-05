@@ -1,7 +1,10 @@
 import React from 'react'
+import TransferenciasPage from './TransferenciasPage'
 
 export default function HomePage() {
   return (
-    <div>Esto es el HomePage</div>
+    <>
+      <TransferenciasPage/>
+    </>
   )
 }
