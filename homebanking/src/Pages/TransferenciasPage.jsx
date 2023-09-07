@@ -1,12 +1,13 @@
 import { Box, Button, HStack, Heading, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import TransferenciaCard from "../components/TransferenciaCard/transferenciaCard";
+import {Link} from 'react-router-dom'
 
 export default function TransferenciasPage() {
   return (
     <>
       {/*ACA VA EL COMPONENTE DEL MENU */}
-
+      <Link to="/pagos">Ir a Pagos</Link>
       <Heading textAlign="center" mt="10px">
         Transferencias
       </Heading>

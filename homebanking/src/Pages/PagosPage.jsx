@@ -8,15 +8,17 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import PagosCard from "../components/PagosCard/PagosCard";
+import {Link} from 'react-router-dom'
 
 export default function PagosPage() {
   return (
     <>
       {/* Aca iria el NavMenu jeje */}
-
+      <Link to="/transferencias">Ir a Transferencias</Link>
       <Heading textAlign="center" mt="10px">
         Pagos
       </Heading>
+
 
       <Box textAlign="center" mt="10px" mb="15px">
         <Button>Nuevo Pago</Button>

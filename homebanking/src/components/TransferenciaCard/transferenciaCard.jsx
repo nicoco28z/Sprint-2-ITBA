@@ -11,13 +11,13 @@ import {
 export default function TransferenciaCard({name}) {
   return (
     <>
-      <Card maxH="180px">
+      <Card maxH="180px" backgroundColor='gray.200'>
         <CardHeader textAlign="center">
           <Avatar name={name} />
         </CardHeader>
         <Text textAlign="center">{name}</Text>
         <CardFooter>
-          <Button>Transferir</Button>
+          <Button colorScheme='blue'>Transferir</Button>
         </CardFooter>
       </Card>
     </>
