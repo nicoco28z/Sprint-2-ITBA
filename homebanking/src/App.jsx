@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import HomePage from "./Pages/HomePage";
 import TransferenciasPage from "./Pages/TransferenciasPage";
 import PagosPage from "./Pages/PagosPage";
+import LoginPage from "./Pages/LoginPage";
 
 //Rutas para la navegacion
 const routes = [
@@ -18,6 +19,10 @@ const routes = [
   {
     path: "/pagos",
     element: <PagosPage />,
+  },
+  {
+    path:"/login",
+    element: <LoginPage/>
   },
 ];
 
