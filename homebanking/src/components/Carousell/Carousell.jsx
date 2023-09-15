@@ -10,8 +10,8 @@ const images = [
     width: "600px",
   },
   {
-    url: "/imagen2.png",
-    alt: "Imagen 2",
+    url: "/bancopordentro.jpg",
+    alt: "bancopordentro",
     width: "600px",
   },
   {
@@ -20,8 +20,13 @@ const images = [
     width: "600px",
   },
   {
-    url: "/bancopordentro.jpg",
-    alt: "bancopordentro",
+    url: "/imagen22.png",
+    alt: "Imagen 22",
+    width: "600px",
+  },
+  {
+    url: "/imagen2.png",
+    alt: "Imagen 2",
     width: "600px",
   },
   {
