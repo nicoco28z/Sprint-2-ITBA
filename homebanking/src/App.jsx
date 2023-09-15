@@ -6,21 +6,19 @@ import TransferenciasPage from "./pages/TransferenciasPage";
 import PagosPage from "./pages/PagosPage";
 import Navbar from './components/Navbar/Navbar'
 import ErrorPage from './pages/ErrorPage'
+import Account from './pages/AccountsPage'
+import AdditionalTools from './pages/AdditionalTools'
 
 import LoginPage from "./pages/LoginPage";
 
 //Rutas para la navegacion
 const routes = [
   {
-    path: "",
-    element: <HomePage />,
-  },
-  {
     path: "/",
     element: <Navbar/>,
     children: [
       {
-        path: "/home",
+        path: "home",
         element: <HomePage />,
       },
       {
@@ -31,15 +29,23 @@ const routes = [
         path: "pagos",
         element: <PagosPage />,
       },
+      {
+        path: "cuentas",
+        element: <Account />,
+      },
+      {
+        path: "herramientas",
+        element: <AdditionalTools />,
+      },
     ],
-  },
-  {
-    path: "*",
-    element: <ErrorPage />,
   },
   {
     path:"/login",
     element: <LoginPage/>
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ];
 
