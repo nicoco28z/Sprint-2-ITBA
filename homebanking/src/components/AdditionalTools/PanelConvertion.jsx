@@ -1,4 +1,4 @@
-import {AccordionPanel, Stack, Select, Button, Input, Checkbox, InputGroup, InputLeftAddon} from "@chakra-ui/react";
+import {AccordionPanel, Select, Button, Input, Checkbox, InputGroup, InputLeftAddon, SimpleGrid} from "@chakra-ui/react";
 import { useState } from "react";
 import moneyCodes from "../../data/moneyCodes.json"
 
@@ -16,28 +16,28 @@ function PanelConvertion(){
 
     return(
         <AccordionPanel align="space-between" flexDir="row" bg="gray.100" borderBottomRadius="15px" marginBottom="10px">
-            <Stack direction={['column', 'row']} spacing="20px">
+            <SimpleGrid columns={[1, 3, 5]} >
                 {/*Input Monto a convertir*/}
-                <InputGroup maxW="15%">
+                <InputGroup>
                     <InputLeftAddon children='$' />
                     <Input variant='filled' value={cantidad} onChange={e => setCantidad(e.target.value)} />
                 </InputGroup>
                 {/*Select moneda del monto*/}
-                <Select variant='flushed' placeholder='Seleccione una Moneda' width="25%" onChange={e => setMoneda1(e.target.value)}>
+                <Select variant='flushed' placeholder='Seleccione una Moneda' onChange={e => setMoneda1(e.target.value)}>
                     {monCodes(checked)}
                 </Select>
                 {/*Select moneda a convertir*/}
-                <Select variant='flushed' placeholder='Seleccione una Moneda' width="25%" onChange={e => setMoneda2(e.target.value)}>
+                <Select variant='flushed' placeholder='Seleccione una Moneda' onChange={e => setMoneda2(e.target.value)}>
                     {monCodes(checked)}
                 </Select>
                 {/*Boton que ejecuta la funcion de la api*/}
                 <Button colorScheme='teal' size='sm' onClick={async () => await accederAPI(moneda1, moneda2, cantidad, setConversion)}>Convertir</Button>
                 {/*Input deshabilitado para resultado*/}
-                <InputGroup maxW="15%">
+                <InputGroup>
                     <InputLeftAddon children='$' />
                     <Input variant='filled' value={conversion} disabled/>
                 </InputGroup>
-            </Stack>
+            </SimpleGrid>
             {/*Check para mas opciones de conversion*/}
             <Checkbox  colorScheme='gray' onChange={e => setChecked(e.target.checked)}>Mostrar todas las monedas.</Checkbox>
         </AccordionPanel>

@@ -1,12 +1,12 @@
-import { Card, CardHeader, CardBody, CardFooter, Text, Button, Divider, Stack } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody, CardFooter, Text, Button, Divider, Stack} from '@chakra-ui/react'
 
 function CardAccount({cuenta, cuentas, setCuentas, setActualizador}){
     return(
-        <Card key={cuenta.id} variant="outline" align="space-betwen" colorScheme='gray' width="30%">
+        <Card key={cuenta.id} variant="outline" align="space-betwen" colorScheme='gray' w="100%">
             <CardHeader>
                 <Stack flexDir="row" justify="space-between">
                     <Text fontSize='2xl'>{cuenta.typeAccount}</Text>
-                    <Button borderRadius="100%" onClick={() => deleteAccount(cuenta.numberAccount, cuentas, setCuentas, setActualizador)}>X</Button>
+                    <Button borderRadius="100%" colorScheme='teal'  onClick={() => deleteAccount(cuenta.numberAccount, cuentas, setCuentas, setActualizador)}>X</Button>
                 </Stack>
                 </CardHeader>
             <Divider colorScheme="blackAlpha"/>
@@ -21,7 +21,7 @@ function CardAccount({cuenta, cuentas, setCuentas, setActualizador}){
                 </Stack>
             </CardBody>
             <CardFooter justify="end">
-                <Button colorScheme='gray' variant='outline'>Transferir</Button>
+                <Button colorScheme='teal' variant='outline'>Transferir</Button>
             </CardFooter>
         </Card>
     )

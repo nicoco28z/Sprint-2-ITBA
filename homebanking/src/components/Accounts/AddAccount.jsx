@@ -1,4 +1,4 @@
-import { Stack, Select, Input, InputGroup, InputLeftAddon, Button} from "@chakra-ui/react"
+import { SimpleGrid, Select, Input, InputGroup, InputLeftAddon, Button} from "@chakra-ui/react"
 import { useState } from "react"
 
 function AddAccount({cuentas, setCuentas, setActualizador}){
@@ -6,19 +6,19 @@ function AddAccount({cuentas, setCuentas, setActualizador}){
     let [inpMon, setInpMon] = useState(0)
 
     return(
-        <Stack direction="row" justify="center">
-            <Select width="30%" value={select} placeholder="Tipo de Cuenta" onChange={e => setSelect(e.target.value)}>
+        <SimpleGrid columns={[1, 2, 3]} spacing="3">
+            <Select value={select} placeholder="Tipo de Cuenta" onChange={e => setSelect(e.target.value)}>
                 <option value="Caja De Ahorro">Caja de Ahorro</option>
                 <option value="Cuenta Sueldo">Cuenta Sueldo</option>
                 <option value="Cuenta Corriente">Cuenta Corriente</option>
                 <option value="Cuenta Prestamo">Cuenta Prestamo</option>
             </Select>
-            <InputGroup width="30%">
+            <InputGroup>
                 <InputLeftAddon children='$' />
                 <Input placeholder='Cantidad Cuenta' value={inpMon} onChange={e => setInpMon(e.target.value)}/>
             </InputGroup>
-            <Button colorScheme='blue' onClick={() => addAccount(select, inpMon, cuentas, setCuentas, setActualizador)}>Agregar Cuenta</Button>
-        </Stack>
+            <Button colorScheme='teal' onClick={() => addAccount(select, inpMon, cuentas, setCuentas, setActualizador)}>Agregar Cuenta</Button>
+        </SimpleGrid>
     )
 }
 

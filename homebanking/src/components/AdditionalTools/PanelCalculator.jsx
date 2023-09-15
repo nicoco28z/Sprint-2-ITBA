@@ -1,5 +1,5 @@
 import {AccordionPanel, Stack, Select, Button, Input, InputGroup, InputLeftAddon,
-        SlideFade, Table, TableCaption, Thead, Tbody, Tr, Th, useDisclosure} from "@chakra-ui/react";
+        SlideFade, Table, TableCaption, Thead, Tbody, Tr, Th, useDisclosure, SimpleGrid} from "@chakra-ui/react";
 import { useState } from "react";
 import cuotasTable from "./Table"
 
@@ -16,27 +16,28 @@ function PanelCalculator(){
 
     return(
         <AccordionPanel borderBottomRadius="15px" bg="gray.100">
-            <Stack direction={['column', 'row']} spacing="10%" justify="center">
+            <SimpleGrid columns={[1, 2]} spacing="10%" justify="center">
                 {/*Input Monto*/}
-                <InputGroup maxW="25%">
+                <InputGroup>
                     <InputLeftAddon children='$' />
                     <Input variant='filled' placeholder="Ingrese el monto:" onChange={e => setMonto(e.target.value)}/>
                 </InputGroup>
                 {/*Selector de Cuotas*/}
-                <Select variant='flushed' placeholder='Seleccione cantidad de Cuotas' width="30%" onChange={e=>setCuota(e.target.value)}>
+                <Select variant='flushed' placeholder='Seleccione cantidad de Cuotas' onChange={e=>setCuota(e.target.value)}>
                     <option value="3">3 cuotas.</option>
                     <option value="6">6 coutas.</option>
                     <option value="9">9 coutas.</option>
                     <option value="12">12 coutas.</option>
                     <option value="36">36 coutas.</option>
                 </Select>
-            </Stack>
-            <Stack direction="row" justify="center">
+                
+            </SimpleGrid>
+            <Stack mt="15px" direction="row" justify="center">
                 {/*Boton calcular para ejecutar la funcion importada cuotasTable y setear el estado tabla con el valor que devuelve*/}
-                <Button colorScheme='teal' size='sm' width="20%" onClick={() => cuotasTable(monto, cuota, onToggle, setTabla)}>Calcular</Button>
+                <Button colorScheme='teal' size='sm' width={["50%", "20%"]} onClick={() => cuotasTable(monto, cuota, onToggle, setTabla)}>Calcular</Button>
             </Stack>
             <hr/>
-            <Stack>
+            <Stack align="center">
                 {/*Columna principal tabla*/}
                 <SlideFade in={isOpen} offsetY='20px'>
                     <Table variant="simple">
