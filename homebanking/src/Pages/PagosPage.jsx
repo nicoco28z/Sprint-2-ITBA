@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -10,6 +10,7 @@ import {
 import PagosCard from "../components/PagosCard/PagosCard";
 
 export default function PagosPage() {
+
   return (
     <>
       {/* Aca iria el NavMenu jeje */}
@@ -34,11 +35,10 @@ export default function PagosPage() {
             flexWrap="wrap"
             justifyContent="right"
             spacing={6}
-            
           >
-            <PagosCard name="Factura de Luz" price={10000} />
-            <PagosCard name="Factura de Agua" price={154285} />
-            <PagosCard name="Cuota de Club" price={5400} />
+           <PagosCard name="Factura de Luz" price={1750} />
+           <PagosCard name="Factura del Agua" price={2000} />
+           <PagosCard name="Club Sanfer" price={2500} />
           </HStack>
         </VStack>
       

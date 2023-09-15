@@ -1,28 +1,36 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import HomePage from "./Pages/HomePage";
-import TransferenciasPage from "./Pages/TransferenciasPage";
-import PagosPage from "./Pages/PagosPage";
-import Appp from "./Pages/Appp";
+import HomePage from "./pages/HomePage";
+import TransferenciasPage from "./pages/TransferenciasPage";
+import PagosPage from "./pages/PagosPage";
+import Navbar from './components/Navbar/Navbar'
+import ErrorPage from './pages/ErrorPage'
+
 
 //Rutas para la navegacion
 const routes = [
   {
-    path: "/Homepage",
-    element: <HomePage />,
+    path: "/",
+    element: <Navbar/>,
+    children: [
+      {
+        path: "/home",
+        element: <HomePage />,
+      },
+      {
+        path: "transferencias",
+        element: <TransferenciasPage />,
+      },
+      {
+        path: "pagos",
+        element: <PagosPage />,
+      },
+    ],
   },
   {
-    path: "/transferencias",
-    element: <TransferenciasPage />,
-  },
-  {
-    path: "/pagos",
-    element: <PagosPage />,
-  },
-  {
-    path: "/App",
-    element: <Appp />,
+    path: "*",
+    element: <ErrorPage />,
   },
 ];
 
