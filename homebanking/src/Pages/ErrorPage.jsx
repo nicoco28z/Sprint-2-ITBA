@@ -1,9 +1,13 @@
 import React from 'react'
+import {useAuth} from '../hooks/useAuth'
 
 export default function ErrorPage() {
+
+  const auth = useAuth()
+
   return (
-    <div>
-        Hola
-    </div>
+    <>
+      {auth.isLogged? "Hola" : "Adios"}
+    </>
   )
 }
