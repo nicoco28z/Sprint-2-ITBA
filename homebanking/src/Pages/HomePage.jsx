@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import MyCarousel from "../components/Carousell/Carousell";
 
 export default function HomePage() {
   return (
-    <div>Esto es el HomePage</div>
-  )
+    <>
+      <MyCarousel />
+    </>
+  );
 }
