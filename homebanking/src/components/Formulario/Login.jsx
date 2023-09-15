@@ -70,7 +70,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [error, setError] = useState(false);
-  const { signIn} = useAuth();
+  const {signIn} = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();

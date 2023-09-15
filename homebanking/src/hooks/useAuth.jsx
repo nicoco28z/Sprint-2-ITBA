@@ -32,7 +32,6 @@ function useProvideAuth() {
   //Si el usuario se desloguea, se pone en false
   const signOut = () => {
     setIsLogged(false);
-    console.log(isLogged);
   };
 
   return {
