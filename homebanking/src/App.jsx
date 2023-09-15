@@ -7,9 +7,14 @@ import PagosPage from "./pages/PagosPage";
 import Navbar from './components/Navbar/Navbar'
 import ErrorPage from './pages/ErrorPage'
 
+import LoginPage from "./pages/LoginPage";
 
 //Rutas para la navegacion
 const routes = [
+  {
+    path: "",
+    element: <HomePage />,
+  },
   {
     path: "/",
     element: <Navbar/>,
@@ -31,6 +36,10 @@ const routes = [
   {
     path: "*",
     element: <ErrorPage />,
+  },
+  {
+    path:"/login",
+    element: <LoginPage/>
   },
 ];
 
