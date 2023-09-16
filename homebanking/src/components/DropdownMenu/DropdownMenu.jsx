@@ -7,13 +7,12 @@ MenuItem,
 Button,
 } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons'; // Importa ChevronDownIcon desde @chakra-ui/icons
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useAuth} from '../../hooks/useAuth'
 
 const DropdownMenu = () => {
 
   const {isLogged, signOut} = useAuth();
-  const navigate = useNavigate()
 
 return (
     <Menu>
@@ -38,7 +37,7 @@ return (
         </MenuItem>
         {isLogged
         ?<MenuItem>
-            <Button onClick={()=> {signOut(); navigate("/home") }}>Cerrar sesión</Button>
+            <Link to="/home" onClick={()=> signOut() }>Cerrar sesión</Link>
           </MenuItem>
         : null
         }
