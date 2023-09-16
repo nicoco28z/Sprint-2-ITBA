@@ -13,8 +13,6 @@ export default function PagosPage() {
 
   return (
     <>
-      {/* Aca iria el NavMenu jeje */}
-
       <Heading textAlign="center" mt="10px">
         Pagos
       </Heading>
