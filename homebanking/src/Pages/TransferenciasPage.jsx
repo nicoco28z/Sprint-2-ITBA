@@ -10,15 +10,15 @@ export default function TransferenciasPage() {
       </Heading>
       <Box display="grid" textAlign="center" mt="2rem" p="20px">
         <HStack justifyContent="center">
-          <Button>Transferir con Alias, CBU o CVU</Button>
-          <Button>Ingresar Dinero</Button>
+          <Button colorScheme="teal" >Transferir con Alias, CBU o CVU</Button>
+          <Button colorScheme="teal" >Ingresar Dinero</Button>
         </HStack>
       </Box>
       <Box ml="5rem">
         <Heading size="md" textAlign="start">
           Transferir a contactos
         </Heading>
-        <Button mt="5px">Agregar Contacto + </Button>
+        <Button colorScheme="teal" mt="5px">Agregar Contacto + </Button>
         <SimpleGrid
           spacing={4}
           templateColumns="repeat(auto-fill, minmax(120px, 1fr))"

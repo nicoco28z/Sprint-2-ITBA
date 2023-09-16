@@ -1,49 +1,41 @@
-import React from 'react';
-import {
-Menu,
-MenuButton,
-MenuList,
-MenuItem,
-Button,
-} from '@chakra-ui/react';
-import { ChevronDownIcon } from '@chakra-ui/icons'; // Importa ChevronDownIcon desde @chakra-ui/icons
+import React from "react";
+import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons"; // Importa ChevronDownIcon desde @chakra-ui/icons
 import { Link } from "react-router-dom";
-import {useAuth} from '../../hooks/useAuth'
+import { useAuth } from "../../hooks/useAuth";
 
 const DropdownMenu = () => {
+  const { isLogged, signOut } = useAuth();
 
-  const {isLogged, signOut} = useAuth();
-
-return (
+  return (
     <Menu>
-    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+      <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
         Menu
-    </MenuButton>
-    <MenuList>
-        <MenuItem>
-          <Link to="/home">Inicio</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/perfil">Mi perfil</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/transferencias">Transferencias</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/pagos">Pagos</Link>
-        </MenuItem>
-        <MenuItem>
-          <Link to="/herramientas">Herramientas</Link>
-        </MenuItem>
-        {isLogged
-        ?<MenuItem>
-            <Link to="/home" onClick={()=> signOut() }>Cerrar sesión</Link>
-          </MenuItem>
-        : null
-        }
-    </MenuList>
+      </MenuButton>
+      <MenuList>
+        <Link to="/home">
+          <MenuItem>Inicio</MenuItem>
+        </Link>
+        <Link to="/perfil">
+          <MenuItem>Mi perfil</MenuItem>
+        </Link>
+        <Link to="/transferencias">
+          <MenuItem>Transferencias</MenuItem>
+        </Link>
+        <Link to="/pagos">
+          <MenuItem>Pagos</MenuItem>
+        </Link>
+        <Link to="/herramientas">
+          <MenuItem>Herramientas</MenuItem>
+        </Link>
+        {isLogged ? (
+          <Link to="/home" onClick={() => signOut()}>
+            <MenuItem>Cerrar sesión</MenuItem>
+          </Link>
+        ) : null}
+      </MenuList>
     </Menu>
-);
+  );
 };
 
 export default DropdownMenu;

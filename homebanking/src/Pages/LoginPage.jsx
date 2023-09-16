@@ -15,7 +15,7 @@ function LoginPage() {
                 <Image
                     objectFit='cover'
                     maxW={{ base: '100%', sm: '500px' }}
-                    src="/techbank"
+                    src="./techbank.jpg"
                     alt='BancPillier'
                 />
 
