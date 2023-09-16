@@ -49,10 +49,11 @@ const MyCarousel = () => {
             <Heading textAlign='center'>
                 Bienvenido a PILLARBANK
             </Heading>
+            <br />
             <Text textAlign='right'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, iste voluptatum ex ab itaque soluta quos sint quaerat nesciunt dolore obcaecati aspernatur quis qui autem, voluptate excepturi delectus quia mollitia quod tenetur pariatur, amet corrupti atque nisi! Quo animi quas, deserunt numquam totam dicta ea? Aliquam tenetur minus illum explicabo nostrum, assumenda quasi quae animi mollitia saepe et sit culpa qui voluptatem odio porro recusandae laudantium! Commodi voluptatem, id nobis esse perspiciatis nisi delectus quisquam at laudantium atque recusandae soluta?
             </Text>
-            {isLogged ? null : <Link to='/login'><Button>Ingresá</Button></Link>}
+            {isLogged ? null : <Link to='/login'><Button mt="24" w="200px" colorScheme="teal">Ingresá</Button></Link>}
         </GridItem>
       <GridItem w="45rem" textAlign="center" mt="15px">
         <Carousel autoPlay interval={4000} infiniteLoop>

@@ -17,7 +17,7 @@ export default function TransferenciaCard({name}) {
         </CardHeader>
         <Text textAlign="center">{name}</Text>
         <CardFooter>
-          <Button>Transferir</Button>
+          <Button colorScheme="teal">Transferir</Button>
         </CardFooter>
       </Card>
     </>
