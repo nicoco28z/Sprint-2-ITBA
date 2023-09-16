@@ -1,4 +1,3 @@
-import { EditIcon } from "@chakra-ui/icons";
 import {
   Card,
   CardHeader,
@@ -11,6 +10,9 @@ import {
 } from "@chakra-ui/react";
 
 export default function PerfilPage() {
+
+  //Esta página por el momento se encuentra hardcodeada
+  //Está pensada para que los usuarios válidos puedan ver su información y editarla si asi lo quisiesen.
 
   return (
     <Card maxWidth="400px" m="auto" height="70%" mt="5%">
