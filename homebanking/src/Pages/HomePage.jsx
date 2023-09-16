@@ -1,10 +1,12 @@
-import React from 'react'
-import TransferenciasPage from './TransferenciasPage'
+import React from "react";
+import MyCarousel from "../components/Carousell/Carousell";
 
 export default function HomePage() {
+  
+
   return (
     <>
-      <TransferenciasPage/>
+      <MyCarousel />
     </>
-  )
+  );
 }

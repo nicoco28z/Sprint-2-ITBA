@@ -14,9 +14,12 @@ import {
   AlertDescription,
   AlertIcon,
   AlertTitle,
+  HStack,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+
 
 import { useNavigate } from "react-router-dom";
 
@@ -66,17 +69,19 @@ function LoginForm() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
+  const {signIn} = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     // Si el usuario y la contraseña son "admin" y "password"
-    if (user === "admin" && password === "password") {
+    if (user === "admin" && password === "admin") {
       // Inicio de sesión exitoso, redirigir a otra página
-      navigate("/");
+      signIn();
+      navigate("/home");
     } else {
-      (setError(true));
+      setError(true);
     }
   };
 
@@ -102,7 +107,7 @@ function LoginForm() {
           ></Input>
         </FormControl>
 
-        <Stack isInline justifyContent="space-between" mt={4}>
+        <HStack justifyContent="space-between" mt={4}>
           <Box>
             <Checkbox defaultChecked colorScheme="teal">
               Recuerdame
@@ -111,17 +116,19 @@ function LoginForm() {
           <Box>
             <Link color="teal">Olvidaste tu contraseña?</Link>
           </Box>
-        </Stack>
+        </HStack>
         <Button colorScheme="teal" width="full" mt="4" type="submit">
           Iniciar Sesión
         </Button>
-        {error && 
-        <Alert status='error'>
-          <AlertIcon />
-          <AlertTitle>Datos incorrectos!</AlertTitle>
-          <AlertDescription>El Usuario y/o Contraseña es incorrecto</AlertDescription>
-        </Alert>
-      }
+        {error && (
+          <Alert status="error">
+            <AlertIcon />
+            <AlertTitle>¡Datos incorrectos!</AlertTitle>
+            <AlertDescription>
+              El Usuario y/o Contraseña es incorrecto
+            </AlertDescription>
+          </Alert>
+        )}
       </form>
     </Box>
   );

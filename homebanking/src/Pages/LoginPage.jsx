@@ -1,8 +1,4 @@
-import {
-    Card,
-    Stack,
-    Image,
-} from "@chakra-ui/react";
+import { Card, Stack, Image } from "@chakra-ui/react";
 import LoginArea from "../components/Formulario/Login";
 
 function LoginPage() {
@@ -23,12 +19,12 @@ function LoginPage() {
                     alt='BancPillier'
                 />
 
-                <Stack>    
-                    <LoginArea/>
-                </Stack>
-            </Card>
-        </> 
-);
+        <Stack>
+          <LoginArea />
+        </Stack>
+      </Card>
+    </>
+  );
 }
 
 export default LoginPage;
