@@ -21,7 +21,7 @@ export default function PagosCard({name, price}) {
             <Text>$ {price}</Text>
         </CardBody>
         <CardFooter justifyContent='center'>
-          <Button>Abonar</Button>
+          <Button colorScheme="teal">Abonar</Button>
         </CardFooter>
       </Card>
     </>
