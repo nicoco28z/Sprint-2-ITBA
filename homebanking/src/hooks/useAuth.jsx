@@ -1,9 +1,15 @@
 import React, { createContext, useState, useContext, useMemo } from "react";
 
+//Este hook esta pensado para validar un usuario, en esta ocación se lo usa solo para que se evalúe si se debe mostrar o no
+//una redirección para el login en caso de que haya un usuario NO logueado.
+//La idea es tener un prototipo que permita la extensión para luego realizar validaciones y obtener datos del usuario actual.
+
 const authContext = createContext();
 
 export function AuthProvider({ children }) {
   const auth = useProvideAuth();
+
+  //Se usa useMemo para poder mantener el valor del usuario en toda la aplicación
   const value = useMemo(() => (auth), [auth.isLogged]);
   return (
     <authContext.Provider value={value}>

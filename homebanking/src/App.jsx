@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import HomePage from "./pages/HomePage";
 import TransferenciasPage from "./pages/TransferenciasPage";
 import PagosPage from "./pages/PagosPage";
+import PerfilPage from "./pages/PerfilPage";
 import Navbar from "./components/Navbar/Navbar";
 import ErrorPage from "./pages/ErrorPage";
 import Account from "./pages/AccountsPage";
@@ -41,6 +42,10 @@ const routes = [
       {
         path: "herramientas",
         element: <AdditionalTools />,
+      },
+      {
+        path: "perfil",
+        element: <PerfilPage />,
       },
     ],
   },

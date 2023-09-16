@@ -5,8 +5,6 @@ import TransferenciaCard from "../components/TransferenciaCard/transferenciaCard
 export default function TransferenciasPage() {
   return (
     <>
-      {/*ACA VA EL COMPONENTE DEL MENU */}
-
       <Heading textAlign="center" mt="10px">
         Transferencias
       </Heading>
