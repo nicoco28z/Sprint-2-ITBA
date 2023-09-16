@@ -4,18 +4,23 @@ import { ChakraProvider } from "@chakra-ui/react";
 import HomePage from "./pages/HomePage";
 import TransferenciasPage from "./pages/TransferenciasPage";
 import PagosPage from "./pages/PagosPage";
-import Navbar from './components/Navbar/Navbar'
-import ErrorPage from './pages/ErrorPage'
-import Account from './pages/AccountsPage'
-import AdditionalTools from './pages/AdditionalTools'
+import Navbar from "./components/Navbar/Navbar";
+import ErrorPage from "./pages/ErrorPage";
+import Account from "./pages/AccountsPage";
+import AdditionalTools from "./pages/AdditionalTools";
+import { AuthProvider } from "./hooks/useAuth";
 
 import LoginPage from "./pages/LoginPage";
 
 //Rutas para la navegacion
 const routes = [
   {
+    path: "",
+    element: <HomePage />,
+  },
+  {
     path: "/",
-    element: <Navbar/>,
+    element: <Navbar />,
     children: [
       {
         path: "home",
@@ -40,8 +45,8 @@ const routes = [
     ],
   },
   {
-    path:"/login",
-    element: <LoginPage/>
+    path: "/login",
+    element: <LoginPage />,
   },
   {
     path: "*",
@@ -49,13 +54,14 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes)
-
+const router = createBrowserRouter(routes);
 
 export default function App() {
   return (
     <ChakraProvider>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </ChakraProvider>
   );
 }

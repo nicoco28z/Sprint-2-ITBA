@@ -1,106 +1,50 @@
-import { useState } from "react";
+import React from 'react';
 import {
-  useColorMode,
-  Switch,
-  Flex,
-  Button,
-  IconButton,
-} from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
-import React from "react";
+Menu,
+MenuButton,
+MenuList,
+MenuItem,
+Button,
+} from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons'; // Importa ChevronDownIcon desde @chakra-ui/icons
+import { Link, useNavigate } from "react-router-dom";
+import {useAuth} from '../../hooks/useAuth'
 
-export default function DropdownMenu() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const isDark = colorMode === "dark";
-  const [display, changeDisplay] = useState("none");
-  return (
-    <Flex>
-      <Flex position="fixed" top="1rem" right="1rem" align="center">
+const DropdownMenu = () => {
 
-        {/* Esta sería la vista del escritorio/computadora */}
-        <Flex display={["none", "none", "flex", "flex"]}>
-          <Link to="/home">
-            <Button variant="ghost" aria-label="Home" my={5} w="100%">
-              Inicio
-            </Button>
-          </Link>
+  const {isLogged, signOut} = useAuth();
+  const navigate = useNavigate()
 
-          <Link to="/perfil">
-            <Button variant="ghost" aria-label="About" my={5} w="100%">
-              Mi Perfil
-            </Button>
-          </Link>
+return (
+    <Menu>
+    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+        Menu
+    </MenuButton>
+    <MenuList>
+        <MenuItem>
+          <Link to="/home">Inicio</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/perfil">Mi perfil</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/transferencias">Transferencias</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/pagos">Pagos</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/herramientas">Herramientas</Link>
+        </MenuItem>
+        {isLogged
+        ?<MenuItem>
+            <Button onClick={()=> {signOut(); navigate("/home") }}>Cerrar sesión</Button>
+          </MenuItem>
+        : null
+        }
+    </MenuList>
+    </Menu>
+);
+};
 
-          <Link to="/transferencias">
-            <Button variant="ghost" aria-label="Contact" my={5} w="100%">
-              Transferencias
-            </Button>
-          </Link>
-
-          <Link to="/pagos">
-            <Button variant="ghost" aria-label="Contact" my={5} w="100%">
-              Pagos
-            </Button>
-          </Link>
-        </Flex>
-
-        {/* Estos son los estilos para los dispositivos móbiles */}
-        <IconButton
-          aria-label="Open Menu"
-          size="lg"
-          mr={2}
-          icon={<HamburgerIcon />}
-          onClick={() => changeDisplay("flex")}
-          display={["flex", "flex", "none", "none"]}
-        />
-        <Switch color="green" isChecked={isDark} onChange={toggleColorMode} />
-      </Flex>
-
-      {/* Como se muestra el contenido a los celulares */}
-      <Flex
-        w="100vw"
-        display={display}
-        bgColor="gray.50"
-        zIndex={20}
-        h="100vh"
-        pos="fixed"
-        top="0"
-        left="0"
-        overflowY="auto"
-        flexDir="column"
-      >
-        <Flex justify="flex-end">
-          <IconButton
-            mt={2}
-            mr={2}
-            aria-label="Open Menu"
-            size="lg"
-            icon={<CloseIcon />}
-            onClick={() => changeDisplay("none")}
-          />
-        </Flex>
-
-        <Flex flexDir="column" align="center">
-          <Link to="/">
-            <Button variant="ghost" aria-label="Home" my={5} w="100%">
-              Home
-            </Button>
-          </Link>
-
-          <Link to="/about">
-            <Button variant="ghost" aria-label="About" my={5} w="100%">
-              About
-            </Button>
-          </Link>
-
-          <Link to="/contact">
-            <Button variant="ghost" aria-label="Contact" my={5} w="100%">
-              Contact
-            </Button>
-          </Link>
-        </Flex>
-      </Flex>
-    </Flex>
-  );
-}
+export default DropdownMenu;
